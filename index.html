@@ -20,6 +20,9 @@
     --mint:#4b8f69;
     --violet:#77685b;
     --warm:#b56b34;
+    --coral:#d06f61;
+    --sky:#79a9bd;
+    --lilac:#a38fbe;
     --body:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     --display:"Noto Serif SC","Songti SC",serif;
     --maxw:1120px;
@@ -50,7 +53,12 @@
     background-size:34px 34px;
     mask-image:linear-gradient(to bottom,black,transparent 78%);
   }
-  body::after{content:"";position:fixed;z-index:-1;inset:12% 8% auto auto;width:34vw;height:34vw;max-width:520px;max-height:520px;border-radius:50%;background:radial-gradient(circle,rgba(75,143,105,.13),transparent 68%);filter:blur(20px);pointer-events:none}
+  body::after{content:"";position:fixed;z-index:-1;inset:12% 8% auto auto;width:34vw;height:34vw;max-width:520px;max-height:520px;border-radius:50%;background:radial-gradient(circle,rgba(75,143,105,.17),transparent 68%);filter:blur(20px);pointer-events:none}
+  .ambient{position:fixed;z-index:-1;pointer-events:none;filter:blur(.2px);opacity:.7}
+  .ambient.one{width:170px;height:170px;top:15%;left:3%;border:1px solid rgba(163,143,190,.24);border-radius:42% 58% 64% 36%;box-shadow:inset 0 0 0 14px rgba(163,143,190,.04);transform:rotate(24deg)}
+  .ambient.two{width:110px;height:110px;right:10%;top:48%;border:1px solid rgba(208,111,97,.24);border-radius:50%;box-shadow:0 0 0 12px rgba(208,111,97,.05),0 0 0 24px rgba(121,169,189,.05)}
+  .ambient.three{width:230px;height:80px;left:20%;bottom:5%;border-top:1px solid rgba(121,169,189,.3);border-radius:50%;transform:rotate(-12deg)}
+  .ambient.three::after{content:"";display:block;width:100%;height:100%;border-top:1px solid rgba(208,111,97,.18);border-radius:50%;transform:translateY(12px)}
   ::selection{background:var(--cyan);color:#fffaf0}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
@@ -87,7 +95,9 @@
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.page-title,.page-sub,.panel,.interest-grid{animation:none;opacity:1;transform:none}}
 
   .hero{max-width:920px;min-height:calc(100vh - 175px);padding:56px 0 76px;position:relative}
+  .hero::before{content:"";position:absolute;right:8%;top:8%;width:210px;height:210px;border-radius:50%;background:conic-gradient(from 30deg,rgba(121,169,189,.14),rgba(208,111,97,.12),rgba(163,143,190,.14),rgba(121,169,189,.14));mask:radial-gradient(circle,transparent 57%,#000 59%,#000 61%,transparent 63%,#000 65%,transparent 70%);animation:spin 26s linear infinite}
   .hero::after{content:"01";position:absolute;right:4px;top:62px;color:rgba(47,111,115,.2);font-family:var(--display);font-size:clamp(6rem,16vw,12rem);line-height:1}
+  @keyframes spin{to{transform:rotate(360deg)}}
   .hero > div{position:relative;z-index:1}
   .eyebrow{display:none}
   .intro-top{display:flex;align-items:flex-end;gap:30px;margin-bottom:34px}
@@ -154,6 +164,7 @@
   }
   .portrait img{width:100%;height:100%;display:block;object-fit:cover;object-position:center top;background-repeat:no-repeat;transition:transform .7s ease}
   .portrait-card::before{content:"WU XIAN";position:absolute;z-index:2;right:-26px;bottom:20px;color:var(--cyan);font-size:10px;letter-spacing:.2em;transform:rotate(-90deg)}
+  .portrait-card::after{content:"";position:absolute;left:-20px;top:-20px;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(208,111,97,.72),rgba(208,111,97,.05) 68%,transparent 70%);pointer-events:none}
   .portrait-card:hover .portrait img{transform:scale(1.045)}
   .page-title{font-family:var(--display);font-size:clamp(2rem,5vw,3.4rem);line-height:1.12;letter-spacing:-.035em;margin-bottom:10px;position:relative;display:inline-block}
   .page-title::after{content:"";display:block;width:30px;height:2px;margin-top:14px;background:var(--cyan);border-radius:9px}
@@ -221,7 +232,7 @@
   .proj p{color:var(--soft);margin-bottom:14px;max-width:850px}
   .proj p b{color:var(--ink)}
   .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-  .chip{font-size:12px;color:var(--soft);border:1px solid rgba(47,111,115,.20);background:rgba(47,111,115,.06);border-radius:999px;padding:5px 11px}
+  .chip{font-size:12px;color:var(--soft);border:1px solid rgba(47,111,115,.20);background:linear-gradient(110deg,rgba(47,111,115,.08),rgba(121,169,189,.08));border-radius:999px;padding:5px 11px}
   .metric{display:inline-flex;color:var(--warm);font-weight:700;margin:3px 0 10px}
   .project-links{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 8px}
   .project-link{
@@ -277,7 +288,9 @@
   @media(max-width:640px){
     .wrap{padding:0 18px}
     .hero{padding-top:30px}
+    .hero::before{width:130px;height:130px;right:3%;top:5%}
     .hero::after{font-size:7rem;top:30px;right:0}
+    .ambient.one{width:100px;height:100px;left:-30px}.ambient.three{left:8%;width:150px}
     .intro-top{align-items:flex-start;flex-direction:column;gap:18px}
     .portrait-card{width:152px}
     h1{font-size:2.3rem}
@@ -305,6 +318,9 @@
 </style>
 </head>
 <body>
+<div class="ambient one" aria-hidden="true"></div>
+<div class="ambient two" aria-hidden="true"></div>
+<div class="ambient three" aria-hidden="true"></div>
 <nav>
   <span class="nav-progress" aria-hidden="true"></span>
   <div class="wrap nav-inner">
