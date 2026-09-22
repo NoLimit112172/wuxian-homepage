@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吴贤 Wu Xian — 个人主页</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,18..72,400;0,18..72,500;1,18..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F4F0;--ink:#1A1916;--muted:#79766E;--soft:#46443E;--line:rgba(26,25,22,.12);--accent:#2E5944;--accent-soft:rgba(46,89,68,.10);--display:"Newsreader",Georgia,serif;--body:"Inter",system-ui,sans-serif;--maxw:880px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:var(--bg)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+nav{position:sticky;top:0;z-index:50;background:rgba(245,244,240,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
+.brand{font-family:var(--display);font-size:20px;font-weight:500;white-space:nowrap}
+.brand .en{color:var(--muted);font-size:14px;font-style:italic;margin-left:6px}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{font-size:14.5px;color:var(--muted);padding:7px 13px;border-radius:50px}
+.nav-links a:hover{color:var(--ink);background:var(--accent-soft)}
+@media(max-width:680px){.nav-inner{flex-direction:column;height:auto;padding:14px 0;gap:12px}.nav-links{justify-content:center}}
+html{scroll-behavior:smooth}
+main{padding:64px 0 40px}
+section.block{padding:56px 0;border-bottom:1px solid var(--line);scroll-margin-top:80px}
+section.block:last-of-type{border-bottom:none}
+.eyebrow{font-size:13px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.4rem,6vw,3.8rem);line-height:1.08;margin-bottom:14px}
+h1 .en{display:block;font-style:italic;font-size:.5em;color:var(--muted);margin-top:8px}
+.subtitle{font-size:clamp(1.05rem,2.5vw,1.3rem);color:var(--soft);margin-bottom:32px;font-family:var(--display)}
+.about-head{display:flex;gap:30px;align-items:center;margin-bottom:26px}
+.avatar{width:150px;height:200px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:3rem;color:var(--accent);background:linear-gradient(150deg,#E9EEEA,#DBE4DD);border:1px solid var(--line);background-size:cover;background-position:center;overflow:hidden;user-select:none}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:560px){.about-head{flex-direction:column;align-items:flex-start;gap:18px}.avatar{width:126px;height:168px}}
+.page-title{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,5vw,2.8rem);margin-bottom:8px}
+.page-sub{color:var(--muted);font-size:15px;margin-bottom:40px}
+.lede{max-width:620px;font-size:clamp(1.1rem,2.4vw,1.3rem);font-family:var(--display);line-height:1.7;margin-bottom:24px}
+.lede em{font-style:italic;color:var(--accent)}
+p.body{max-width:640px;color:var(--soft);margin-bottom:18px}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.tag{font-size:14px;padding:8px 16px;border:1px solid var(--line);border-radius:50px;color:var(--soft)}
+.quick{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px}
+.quick a{font-size:15px;color:var(--accent);border-bottom:1px solid rgba(46,89,68,.3);padding-bottom:2px}
+.entry{padding:28px 0;border-top:1px solid var(--line)}
+.entry:first-of-type{border-top:none;padding-top:0}
+.entry .when{font-size:13px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.badge{font-size:11px;padding:3px 10px;border-radius:40px;background:var(--accent-soft);color:var(--accent)}
+.entry h3{font-family:var(--display);font-weight:500;font-size:1.4rem;margin-bottom:4px}
+.entry .org{color:var(--soft);font-size:1.02rem;margin-bottom:12px}
+.entry .detail{color:var(--muted);font-size:15px;line-height:1.6}
+.entry .detail b{color:var(--soft);font-weight:500}
+.courses{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.course{font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:6px;color:var(--soft)}
+.course b{color:var(--accent);font-weight:600;margin-left:4px}
+.proj{padding:32px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:none;padding-top:0}
+.proj .when{font-size:13px;color:var(--muted);margin-bottom:8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.proj h3{font-family:var(--display);font-weight:500;font-size:clamp(1.3rem,3.5vw,1.7rem);margin-bottom:14px;line-height:1.25}
+.proj p{color:var(--soft);font-size:15.5px;line-height:1.65;margin-bottom:14px;max-width:640px}
+.proj p b{color:var(--ink);font-weight:600}
+.proj a.link{color:var(--accent);border-bottom:1px solid rgba(46,89,68,.3)}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{font-size:12.5px;padding:5px 12px;border:1px solid var(--line);border-radius:50px;color:var(--muted)}
+.metric{display:inline-block;font-family:var(--display);color:var(--accent);font-size:15px;border-bottom:1px solid rgba(46,89,68,.3);margin-bottom:8px}
+.award-group{margin-bottom:36px}
+.award-group h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.award{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:15px 0;border-bottom:1px solid var(--line)}
+.award .name{font-family:var(--display);font-size:1.08rem}
+.award .lvl{font-size:13px;color:var(--accent);white-space:nowrap;background:var(--accent-soft);padding:4px 11px;border-radius:40px}
+.crow{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.crow:first-child{border-top:1px solid var(--line)}
+.crow .ck{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.crow .cv a{color:var(--accent);border-bottom:1px solid rgba(46,89,68,.3)}
+footer{border-top:1px solid var(--line);padding:32px 0}
+.foot-inner{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav-inner">
+<a href="#about" class="brand">吴贤<span class="en">Wu Xian</span></a>
+<div class="nav-links"><a href="#about">关于</a><a href="#education">教育</a><a href="#projects">研究与项目</a><a href="#honors">荣誉</a><a href="#contact">联系</a></div>
+</div></nav>
+<main class="wrap">
+<section class="block" id="about">
+<div class="about-head">
+<div class="avatar"><img src="avatar.jpg" alt="吴贤"></div>
+<div><div class="eyebrow">Multimodal AI · Multi-Agent Systems · RL</div>
+<h1>吴贤<span class="en">Wu Xian</span></h1></div>
+</div>
+<div class="subtitle">中国科学技术大学 信息科学技术学院 · 2026级硕士研究生</div>
+<p class="lede">我是吴贤，现为<em>中国科学技术大学</em>电子与通信工程硕士研究生，研究兴趣为多模态学习、多智能体系统与强化学习。</p>
+<p class="body">我关注视觉、语言与智能体决策之间的连接：复杂场景理解、多智能体在开放环境中的协同推理与学习，以及可靠感知能力在真实系统中的落地。本科期间围绕信号处理、深度学习与图像分析，独立完成了医学图像分割、人脸识别等项目。</p>
+<div class="tags"><span class="tag">多模态理解 / VLM</span><span class="tag">多智能体协同 / OPD / RL</span><span class="tag">PyTorch 原型</span><span class="tag">医学图像分析</span></div>
+<div class="quick"><a href="#projects">看看我做过的项目 →</a><a href="#contact">联系方式 →</a></div>
+</section>
+<section class="block" id="education">
+<div class="page-title">教育背景</div><div class="page-sub">Education</div>
+<div class="entry"><div class="when">2026.09 — 2029.06 <span class="badge">在读</span></div>
+<h3>中国科学技术大学</h3><div class="org">信息科学技术学院 · 电子工程与信息科学系 · 硕士研究生（电子与通信工程）</div>
+<div class="detail">方向：多模态学习、多智能体系统、OPD、强化学习与智能信息处理。</div></div>
+<div class="entry"><div class="when">2022.09 — 2026.06</div>
+<h3>合肥工业大学</h3><div class="org">计算机与信息学院 · 电子信息工程 · 本科</div>
+<div class="detail">GPA <b>3.62 / 4.3</b> · 均分 <b>87.45</b> · 排名 <b>29 / 149（前19.46%）</b> · CET4 472 / CET6 469</div>
+<div class="courses"><span class="course">信号与系统<b>94</b></span><span class="course">数字信号处理<b>91</b></span><span class="course">高等数学<b>98</b></span><span class="course">线性代数<b>97</b></span><span class="course">概率论<b>98</b></span></div></div>
+</section>
+<section class="block" id="projects">
+<div class="page-title">研究与项目</div><div class="page-sub">Research & Projects</div>
+<div class="proj"><div class="when">2025.12 — 2026.06 <span class="badge">本科毕设</span></div>
+<h3>基于深度学习的视网膜 OCT 图像智能分割系统</h3>
+<p>面向视网膜 OCT 积液病灶分割，以 <b>U-Net</b> 为基线对比 U-Net / Attention U-Net，完成预处理、训练、<b>Dice / IoU</b> 评估与 Tkinter 推理可视化。</p>
+<p><a class="link" href="https://github.com/NoLimit112172/OCT-Retinal-Fluid-Segmentation" target="_blank" rel="noopener">代码：OCT-Retinal-Fluid-Segmentation →</a></p>
+<div class="stack"><span class="chip">PyTorch</span><span class="chip">U-Net</span><span class="chip">Medical AI</span></div></div>
+<div class="proj"><div class="when">2025.02 — 2025.04</div>
+<h3>基于深度学习的人脸识别远程打卡系统</h3>
+<p>C/S 架构，PyQt5 + OpenCV + Socket + openGauss，复现 EigenFace 与 CosFace-LMCL。</p>
+<span class="metric">LFW 准确率 95.70%</span>
+<div class="stack"><span class="chip">PyQt5</span><span class="chip">OpenCV</span><span class="chip">Socket</span></div></div>
+<div class="proj"><div class="when">2026.06 — 至今</div>
+<h3>OPD Literature Atlas</h3>
+<p>OPD 及强化学习论文精读图谱，支持搜索筛选与方法谱系整理。</p>
+<p><a class="link" href="https://github.com/NoLimit112172/opd-literature-atlas" target="_blank" rel="noopener">代码 →</a> <a class="link" href="https://nolimit112172.github.io/opd-literature-atlas/" target="_blank" rel="noopener">在线图谱 →</a></p>
+<div class="stack"><span class="chip">OPD</span><span class="chip">RL</span><span class="chip">Multi-Agent</span></div></div>
+</section>
+<section class="block" id="honors">
+<div class="page-title">荣誉技能</div><div class="page-sub">Honors & Skills</div>
+<div class="award-group"><h4>竞赛奖项</h4>
+<div class="award"><span class="name">大唐杯全国大学生新一代信息通信技术大赛</span><span class="lvl">省一 2025</span></div>
+<div class="award"><span class="name">华为 ICT 大赛 · 云赛道</span><span class="lvl">省一 2025</span></div>
+<div class="award"><span class="name">全国高校计算机能力挑战赛 C++</span><span class="lvl">华东二等奖 2024</span></div></div>
+<div class="award-group"><h4>荣誉称号</h4>
+<div class="award"><span class="name">校三等奖学金 · 校三好学生</span><span class="lvl">2022—2023</span></div>
+<div class="award"><span class="name">校三等奖学金</span><span class="lvl">2024—2025</span></div></div>
+<div class="award-group"><h4>技能</h4>
+<p class="body">Python / C / PyTorch / OpenCV / MATLAB / Linux · 深度学习 / 计算机视觉 / 多模态 / 多智能体 / 强化学习 / 医学影像分析</p></div>
+</section>
+<section class="block" id="contact">
+<div class="page-title">联系</div><div class="page-sub">Get in touch</div>
+<div class="crow"><span class="ck">邮箱</span><span class="cv"><a href="mailto:wuxiann1212@gmail.com">wuxiann1212@gmail.com</a></span></div>
+<div class="crow"><span class="ck">GitHub</span><span class="cv"><a href="https://github.com/NoLimit112172" target="_blank" rel="noopener">NoLimit112172</a></span></div>
+<div class="crow"><span class="ck">电话</span><span class="cv"><a href="tel:17856289160">17856289160</a></span></div>
+<div class="crow"><span class="ck">就读</span><span class="cv">中国科学技术大学 · 电子工程与信息科学系</span></div>
+</section>
+</main>
+<footer><div class="wrap foot-inner"><span>© 2026 吴贤 Wu Xian</span><span>Multimodal AI · Multi-Agent Systems · RL</span></div></footer>
+</body>
+</html>
