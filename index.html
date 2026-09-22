@@ -86,23 +86,11 @@
   section.page:last-of-type{border-bottom:none}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.page-title,.page-sub,.panel,.interest-grid{animation:none;opacity:1;transform:none}}
 
-  .hero{max-width:1020px;min-height:calc(100vh - 175px);padding:34px 0 52px;position:relative}
-  .hero::after{content:"01 / PROFILE";position:absolute;right:0;top:36px;color:var(--muted);font-size:11px;letter-spacing:.18em;writing-mode:vertical-rl}
+  .hero{max-width:920px;min-height:calc(100vh - 175px);padding:56px 0 76px;position:relative}
+  .hero::after{content:"01";position:absolute;right:4px;top:62px;color:rgba(47,111,115,.2);font-family:var(--display);font-size:clamp(6rem,16vw,12rem);line-height:1}
   .hero > div{position:relative;z-index:1}
-  .hero > div::before{content:"";position:absolute;z-index:-1;inset:-34px -44px -34px -34px;border:1px solid rgba(47,111,115,.14);border-radius:30px;background:linear-gradient(135deg,rgba(255,250,240,.72),rgba(255,250,240,.22));box-shadow:0 30px 80px rgba(68,54,32,.08);transform:rotate(-.7deg)}
-  .eyebrow{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    color:var(--cyan);
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    margin-bottom:22px;
-  }
-  .eyebrow::before{content:"";width:34px;height:1px;background:var(--cyan)}
-  .intro-top{display:flex;align-items:flex-end;gap:30px;margin-bottom:26px}
+  .eyebrow{display:none}
+  .intro-top{display:flex;align-items:flex-end;gap:30px;margin-bottom:34px}
   h1{
     font-family:var(--display);
     font-size:clamp(1.7rem,4vw,2.15rem);
@@ -111,21 +99,10 @@
     margin-bottom:0;
   }
   h1 span{display:block;color:var(--muted);font-family:var(--body);font-size:.28em;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-top:10px}
-  .subtitle{max-width:760px;color:var(--soft);font-size:clamp(1.08rem,2.2vw,1.34rem);line-height:1.72;margin-bottom:24px}
+  .subtitle{max-width:760px;color:var(--soft);font-size:clamp(1.08rem,2.2vw,1.34rem);line-height:1.72;margin-bottom:28px}
   .subtitle b{color:var(--ink);font-weight:700}
   p.body{color:var(--soft);max-width:760px;margin-bottom:16px}
-  .focus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:30px 0 34px;max-width:720px}
-  .focus{
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:16px 18px;
-    background:rgba(255,250,240,.72);
-    box-shadow:0 16px 38px rgba(68,54,32,.08);
-    transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
-  }
-  .focus:hover{transform:translateY(-5px) rotate(.4deg);box-shadow:0 22px 44px rgba(68,54,32,.14);border-color:rgba(47,111,115,.28)}
-  .focus .k{color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
-  .focus .v{color:var(--ink);font-weight:600}
+
   .quick{display:flex;gap:14px;flex-wrap:wrap}
   .icon-links{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 30px}
   .icon-link{
@@ -179,7 +156,7 @@
   .portrait-card::before{content:"WU XIAN";position:absolute;z-index:2;right:-26px;bottom:20px;color:var(--cyan);font-size:10px;letter-spacing:.2em;transform:rotate(-90deg)}
   .portrait-card:hover .portrait img{transform:scale(1.045)}
   .page-title{font-family:var(--display);font-size:clamp(2rem,5vw,3.4rem);line-height:1.12;letter-spacing:-.035em;margin-bottom:10px;position:relative;display:inline-block}
-  .page-title::after{content:"";display:block;width:54px;height:3px;margin-top:14px;background:var(--cyan);border-radius:9px}
+  .page-title::after{content:"";display:block;width:30px;height:2px;margin-top:14px;background:var(--cyan);border-radius:9px}
   .page-sub{color:var(--muted);margin-bottom:34px;letter-spacing:.04em}
   .page-title,.page-sub,.panel,.interest-grid{opacity:0;transform:translateY(18px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
   .page-sub{animation-delay:.08s}.panel,.interest-grid{animation-delay:.16s}
@@ -238,11 +215,9 @@
   .course-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
   .course{font-size:13px;color:var(--soft);border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:6px 12px}
   .interest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:26px}
-  .interest{position:relative;min-height:150px;border:1px solid var(--line);border-radius:22px;padding:22px;background:linear-gradient(145deg,rgba(255,250,240,.84),rgba(255,250,240,.38));overflow:hidden;box-shadow:0 12px 28px rgba(68,54,32,.06);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
-  .interest::after{content:"↗";position:absolute;right:18px;bottom:12px;color:rgba(47,111,115,.35);font-size:28px;font-family:Georgia,serif;transition:transform .28s ease,color .28s ease}
-  .interest:hover{transform:translateY(-7px);border-color:rgba(47,111,115,.3);box-shadow:0 20px 40px rgba(68,54,32,.12)}
-  .interest:hover::after{color:var(--cyan);transform:translate(4px,-4px)}
-  .interest b{display:block;color:var(--mint);margin-bottom:10px;font-size:1.06rem}
+  .interest{position:relative;min-height:142px;border:1px solid var(--line);border-radius:16px;padding:22px;background:rgba(255,250,240,.58);overflow:hidden;transition:transform .28s ease,background .28s ease,border-color .28s ease}
+  .interest:hover{transform:translateY(-4px);background:rgba(255,250,240,.88);border-color:rgba(47,111,115,.26)}
+  .interest b{display:block;color:var(--mint);margin-bottom:8px;font-size:1.02rem}
   .proj p{color:var(--soft);margin-bottom:14px;max-width:850px}
   .proj p b{color:var(--ink)}
   .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
@@ -301,9 +276,8 @@
   }
   @media(max-width:640px){
     .wrap{padding:0 18px}
-    .hero{padding-top:18px}
-    .hero::after{display:none}
-    .hero > div::before{inset:-18px -12px -22px -12px}
+    .hero{padding-top:30px}
+    .hero::after{font-size:7rem;top:30px;right:0}
     .intro-top{align-items:flex-start;flex-direction:column;gap:18px}
     .portrait-card{width:152px}
     h1{font-size:2.3rem}
@@ -313,7 +287,6 @@
     .nav-links a{font-size:13px;padding:7px 11px}
     main{padding:38px 0 72px}
     .portrait-card{width:150px;margin-bottom:18px}
-    .focus-grid{grid-template-columns:1fr}
     .entry,.proj,.award-group{padding:22px}
     .school-head{gap:12px}
     .school-logo{width:52px;height:52px;flex-basis:52px}
@@ -348,7 +321,6 @@
   <section class="page" id="about">
     <div class="hero">
       <div>
-        <div class="eyebrow">Multimodal AI · Multi-Agent Systems · RL</div>
         <div class="intro-top">
           <aside class="portrait-card" aria-label="吴贤照片">
             <div class="portrait">
@@ -373,12 +345,6 @@
             <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.3.56 3.58.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.28.19 2.47.56 3.58a1 1 0 0 1-.25 1.01l-2.19 2.2Z"/></svg>
             电话
           </a>
-        </div>
-        <div class="focus-grid" aria-label="研究方向">
-          <div class="focus"><div class="k">Research</div><div class="v">多模态理解 / VLM / 智能感知</div></div>
-          <div class="focus"><div class="k">Agents</div><div class="v">多智能体协同 / OPD / RL</div></div>
-          <div class="focus"><div class="k">Systems</div><div class="v">PyTorch 原型 / 推理可视化 / 应用落地</div></div>
-          <div class="focus"><div class="k">Domain</div><div class="v">医学图像分析 / 视觉识别 / 可信 AI</div></div>
         </div>
         <div class="quick">
           <a class="btn" href="#projects" data-nav>查看研究与项目</a>
