@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吴贤 Wu Xian — 个人主页</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --panel:#fffaf0;
+    --panel-2:#ebe4d7;
+    --ink:#22201c;
+    --soft:#514d45;
+    --muted:#847c70;
+    --line:rgba(34,32,28,.14);
+    --cyan:#2f6f73;
+    --mint:#4b8f69;
+    --violet:#77685b;
+    --warm:#b56b34;
+    --body:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --display:"Noto Serif SC","Songti SC",serif;
+    --maxw:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    min-height:100vh;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(47,111,115,.12), transparent 30rem),
+      radial-gradient(circle at 88% 15%, rgba(181,107,52,.10), transparent 28rem),
+      linear-gradient(145deg,#f8f5ee 0%,#f2ede2 45%,#ebe3d6 100%);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.28;
+    background-image:
+      linear-gradient(rgba(34,32,28,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(34,32,28,.035) 1px,transparent 1px);
+    background-size:34px 34px;
+    mask-image:linear-gradient(to bottom,black,transparent 75%);
+  }
+  ::selection{background:var(--cyan);color:#fffaf0}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    border-bottom:1px solid var(--line);
+    background:rgba(248,245,238,.82);
+    backdrop-filter:blur(14px);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:76px;gap:22px}
+  .brand{font-weight:700;letter-spacing:.02em}
+  .brand span{display:block;color:var(--muted);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .nav-links a{
+    color:var(--soft);
+    font-size:14px;
+    padding:8px 14px;
+    border:1px solid transparent;
+    border-radius:999px;
+    transition:color .2s,border-color .2s,background .2s;
+  }
+  .nav-links a:hover,.nav-links a.active{
+    color:var(--cyan);
+    border-color:rgba(47,111,115,.24);
+    background:rgba(47,111,115,.08);
+  }
+  main{padding:24px 0 88px}
+  section.page{display:block;scroll-margin-top:96px;padding:48px 0;border-bottom:1px solid var(--line)}
+  section.page:last-of-type{border-bottom:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  .hero{
+    max-width:860px;
+    min-height:calc(100vh - 200px);
+    padding-top:16px;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:var(--cyan);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--cyan)}
+  .intro-top{margin-bottom:20px}
+  h1{
+    font-family:var(--display);
+    font-size:clamp(1.7rem,4vw,2.15rem);
+    line-height:1.16;
+    letter-spacing:-.025em;
+    margin-bottom:0;
+  }
+  h1 span{display:block;color:var(--muted);font-family:var(--body);font-size:.28em;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-top:10px}
+  .subtitle{max-width:760px;color:var(--soft);font-size:clamp(1.08rem,2.2vw,1.34rem);line-height:1.72;margin-bottom:24px}
+  .subtitle b{color:var(--ink);font-weight:700}
+  p.body{color:var(--soft);max-width:760px;margin-bottom:16px}
+  .focus-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:30px 0 34px;max-width:720px}
+  .focus{
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:16px 18px;
+    background:rgba(255,250,240,.72);
+    box-shadow:0 16px 38px rgba(68,54,32,.08);
+  }
+  .focus .k{color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+  .focus .v{color:var(--ink);font-weight:600}
+  .quick{display:flex;gap:14px;flex-wrap:wrap}
+  .icon-links{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 30px}
+  .icon-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--soft);
+    background:rgba(255,250,240,.58);
+    font-size:14px;
+    transition:color .2s,border-color .2s,background .2s,transform .2s;
+  }
+  .icon-link:hover{color:var(--cyan);border-color:rgba(47,111,115,.3);background:rgba(47,111,115,.06);transform:translateY(-1px)}
+  .ico{width:16px;height:16px;display:inline-block;flex:0 0 16px;fill:currentColor}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border-radius:999px;
+    border:1px solid rgba(47,111,115,.28);
+    color:#fffaf0;
+    background:var(--cyan);
+    transition:transform .2s,background .2s,border-color .2s;
+  }
+  .btn:hover{transform:translateY(-2px);background:#285f62;border-color:rgba(47,111,115,.45)}
+  .btn.secondary{background:transparent;border-color:var(--line);color:var(--soft)}
+  .portrait-card{
+    position:relative;
+    width:190px;
+    flex:0 0 190px;
+    border:1px solid rgba(34,32,28,.14);
+    border-radius:24px;
+    padding:8px;
+    background:rgba(255,250,240,.78);
+    box-shadow:0 18px 38px rgba(68,54,32,.16);
+    overflow:hidden;
+    margin-bottom:18px;
+  }
+  .portrait{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    aspect-ratio:3/4;
+    background:#efe7d9;
+  }
+  .portrait img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    object-position:center top;
+    background-repeat:no-repeat;
+  }
+  .page-title{font-family:var(--display);font-size:clamp(2rem,5vw,3.4rem);line-height:1.12;letter-spacing:-.035em;margin-bottom:10px}
+  .page-sub{color:var(--muted);margin-bottom:34px}
+  .panel{
+    border:1px solid var(--line);
+    border-radius:28px;
+    background:rgba(255,250,240,.74);
+    box-shadow:0 20px 50px rgba(68,54,32,.10);
+    overflow:hidden;
+  }
+  .entry,.proj,.award-group{padding:30px;border-top:1px solid var(--line)}
+  .entry:first-child,.proj:first-child,.award-group:first-child{border-top:none}
+  .entry .when,.proj .when{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:8px}
+  .badge{display:inline-flex;color:#fffaf0;background:var(--cyan);font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+  .entry h3,.proj h3{font-family:var(--display);font-size:1.45rem;line-height:1.25;margin-bottom:8px}
+  .org{color:var(--soft);margin-bottom:12px}
+  .school-head{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+  .school-head a{color:inherit}
+  .school-head a:hover{color:var(--cyan)}
+  .school-logo{width:58px;height:58px;object-fit:contain;flex:0 0 58px}
+  .school-head h3{margin-bottom:4px}
+  .school-head .org{margin-bottom:0}
+  .detail{color:var(--muted);font-size:15px}
+  .detail b{color:var(--ink)}
+  .transcript-card{
+    display:block;
+    margin-top:14px;
+    padding:16px 18px;
+    border:1px solid var(--line);
+    border-radius:18px;
+    background:rgba(255,250,240,.62);
+    color:inherit;
+    transition:background .2s,border-color .2s,transform .2s;
+  }
+  .transcript-card:hover{background:rgba(47,111,115,.06);border-color:rgba(47,111,115,.24);transform:translateY(-1px)}
+  .transcript-title{color:var(--cyan);font-weight:700;margin-bottom:12px}
+  .score-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .score-item{padding-right:12px;border-right:1px solid var(--line)}
+  .score-item:last-child{border-right:none;padding-right:0}
+  .score-label{display:block;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+  .score-value{display:block;color:var(--ink);font-weight:800;font-size:1.16rem;line-height:1.35}
+  .evidence-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--cyan);
+    font-weight:600;
+    border-bottom:1px solid rgba(47,111,115,.26);
+    padding-bottom:2px;
+  }
+  .evidence-link:hover{opacity:.72}
+  .course-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+  .course{font-size:13px;color:var(--soft);border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:6px 12px}
+  .interest-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:26px}
+  .interest{border:1px solid var(--line);border-radius:22px;padding:20px;background:rgba(255,250,240,.62)}
+  .interest b{display:block;color:var(--mint);margin-bottom:6px}
+  .proj p{color:var(--soft);margin-bottom:14px;max-width:850px}
+  .proj p b{color:var(--ink)}
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{font-size:12px;color:var(--soft);border:1px solid rgba(47,111,115,.20);background:rgba(47,111,115,.06);border-radius:999px;padding:5px 11px}
+  .metric{display:inline-flex;color:var(--warm);font-weight:700;margin:3px 0 10px}
+  .project-links{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 8px}
+  .project-link{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:var(--cyan);
+    font-size:14px;
+    font-weight:600;
+    border-bottom:1px solid rgba(47,111,115,.26);
+    padding-bottom:2px;
+  }
+  .project-link:hover{opacity:.72}
+  .award-group h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px}
+  .award{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+  a.award{transition:color .2s,opacity .2s}
+  a.award:hover{opacity:.75}
+  .award:first-of-type{border-top:none}
+  .award .name{color:var(--ink)}
+  .award .lvl{white-space:nowrap;color:var(--mint);font-size:13px}
+  .doc-modal{position:fixed;inset:0;z-index:100;display:none}
+  .doc-modal.active{display:block}
+  .doc-backdrop{position:absolute;inset:0;background:rgba(34,32,28,.56);backdrop-filter:blur(4px)}
+  .doc-panel{
+    position:absolute;
+    inset:28px;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    border-radius:22px;
+    border:1px solid rgba(255,250,240,.32);
+    background:var(--panel);
+    box-shadow:0 28px 90px rgba(34,32,28,.32);
+  }
+  .doc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  .doc-title{color:var(--ink);font-weight:700;font-size:15px}
+  .doc-actions{display:flex;align-items:center;gap:10px}
+  .doc-open{color:var(--cyan);font-size:14px;border-bottom:1px solid rgba(47,111,115,.26)}
+  .doc-close{border:1px solid var(--line);border-radius:999px;background:rgba(255,250,240,.7);color:var(--ink);padding:7px 12px;font:inherit;cursor:pointer}
+  .doc-body{flex:1;min-height:0;background:#f7f3ea}
+  .doc-frame{width:100%;height:100%;border:0;display:block}
+  .doc-image{width:100%;height:100%;object-fit:contain;display:none}
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}
+  .foot-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  :focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:8px}
+
+  @media(max-width:840px){
+    .hero{min-height:auto}
+    .interest-grid{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 18px}
+    .nav-inner{display:block;min-height:auto;padding:15px 18px}
+    .brand{display:inline-block;margin-bottom:12px}
+    .nav-links{justify-content:flex-start;gap:6px}
+    .nav-links a{font-size:13px;padding:7px 11px}
+    main{padding:38px 0 72px}
+    .portrait-card{width:150px;margin-bottom:18px}
+    .focus-grid{grid-template-columns:1fr}
+    .entry,.proj,.award-group{padding:22px}
+    .school-head{gap:12px}
+    .school-logo{width:52px;height:52px;flex-basis:52px}
+    .score-grid{grid-template-columns:1fr;gap:0}
+    .score-item{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:10px 0;border-right:none;border-bottom:1px solid var(--line)}
+    .score-item:last-child{border-bottom:none}
+    .score-label{margin-bottom:0;white-space:nowrap}
+    .score-value{text-align:right}
+    .doc-panel{inset:14px 10px;border-radius:18px}
+    .doc-head{align-items:flex-start}
+    .doc-actions{flex-shrink:0}
+    .doc-title{font-size:14px}
+    .award{display:block}
+    .award .lvl{display:block;text-align:left;margin-top:6px}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#about" class="brand" data-nav>吴贤<span>Wu Xian</span></a>
+    <div class="nav-links">
+      <a href="#about" data-nav>主页</a>
+      <a href="#education" data-nav>教育背景</a>
+      <a href="#projects" data-nav>研究与项目</a>
+      <a href="#honors" data-nav>荣誉技能</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section class="page" id="about">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Multimodal AI · Multi-Agent Systems · RL</div>
+        <div class="intro-top">
+          <aside class="portrait-card" aria-label="吴贤照片">
+            <div class="portrait">
+              <img src="avatar.jpg" alt="吴贤的照片">
+            </div>
+          </aside>
+          <h1>吴贤<span>Wu Xian</span></h1>
+        </div>
+        <div class="subtitle">中国科学技术大学信息科学技术学院 2026 级在读硕士研究生，研究兴趣聚焦 <b>多模态学习</b>、<b>多智能体系统</b>、<b>OPD</b> 与 <b>强化学习</b>。</div>
+        <p class="body">我关注视觉、语言与智能体决策之间的连接：如何让模型理解复杂场景，如何让多个智能体在开放环境中协同、推理与学习，以及如何把可靠的感知能力落到真实系统里。</p>
+        <p class="body">当前希望在多模态表征、智能体协作、医学影像智能分析与强化学习方向继续深入，把算法能力转化为可解释、可验证、可部署的研究原型。</p>
+        <div class="icon-links" aria-label="个人链接">
+          <a class="icon-link" href="https://github.com/NoLimit112172" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.67 0 8.2c0 3.62 2.29 6.69 5.47 7.78.4.08.55-.18.55-.4 0-.2-.01-.86-.01-1.56-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.16-.28-.15-.68-.52-.01-.53.63-.01 1.08.59 1.23.84.72 1.24 1.87.89 2.33.68.07-.53.28-.89.51-1.09-1.78-.21-3.64-.91-3.64-4.03 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.4 7.4 0 0 1 8 3.99c.68 0 1.36.09 2 .27 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.3.82 2.19 0 3.13-1.87 3.82-3.65 4.03.29.26.54.75.54 1.52 0 1.1-.01 1.98-.01 2.26 0 .22.15.48.55.4A8.13 8.13 0 0 0 16 8.2C16 3.67 12.42 0 8 0Z"/></svg>
+            GitHub
+          </a>
+          <a class="icon-link" href="mailto:wuxiann1212@gmail.com">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-.4 4.25-7.07 5.3a.9.9 0 0 1-1.06 0L4.4 8.25V6.8l7.6 5.7 7.6-5.7v1.45Z"/></svg>
+            Gmail
+          </a>
+          <a class="icon-link" href="tel:17856289160">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.3.56 3.58.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.28.19 2.47.56 3.58a1 1 0 0 1-.25 1.01l-2.19 2.2Z"/></svg>
+            电话
+          </a>
+        </div>
+        <div class="focus-grid">
+          <div class="focus"><div class="k">Research</div><div class="v">多模态理解 / VLM / 智能感知</div></div>
+          <div class="focus"><div class="k">Agents</div><div class="v">多智能体协同 / OPD / RL</div></div>
+          <div class="focus"><div class="k">Systems</div><div class="v">PyTorch 原型 / 推理可视化 / 应用落地</div></div>
+          <div class="focus"><div class="k">Domain</div><div class="v">医学图像分析 / 视觉识别 / 可信 AI</div></div>
+        </div>
+        <div class="quick">
+          <a class="btn" href="#projects" data-nav>查看研究与项目</a>
+          <a class="btn secondary" href="mailto:wuxiann1212@gmail.com">发邮件</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="education">
+    <div class="page-title">教育背景</div>
+    <div class="page-sub">Education & Language Ability</div>
+    <div class="panel">
+      <div class="entry">
+        <div class="when">2026.09 — 2029.06 <span class="badge">在读</span></div>
+        <div class="school-head">
+          <a href="https://www.ustc.edu.cn/" target="_blank" rel="noopener" aria-label="访问中国科学技术大学官网">
+            <img class="school-logo" src="ustc-logo.png" alt="中国科学技术大学校徽">
+          </a>
+          <div>
+            <h3><a href="https://www.ustc.edu.cn/" target="_blank" rel="noopener">中国科学技术大学</a></h3>
+            <div class="org">
+              <a href="https://sist.ustc.edu.cn/" target="_blank" rel="noopener">信息科学技术学院</a> ·
+              <a href="https://eeis.ustc.edu.cn/" target="_blank" rel="noopener">电子工程与信息科学系</a> · 硕士研究生（电子与通信工程）
+            </div>
+          </div>
+        </div>
+        <div class="detail">研究方向聚焦多模态学习、多智能体系统、OPD、强化学习（RL）与智能信息处理，关注感知、推理、决策在复杂系统中的协同。</div>
+      </div>
+      <div class="entry">
+        <div class="when">2022.09 — 2026.06</div>
+        <div class="school-head">
+          <a href="https://www.hfut.edu.cn/" target="_blank" rel="noopener" aria-label="访问合肥工业大学官网">
+            <img class="school-logo" src="hfut-logo.png" alt="合肥工业大学校徽">
+          </a>
+          <div>
+            <h3><a href="https://www.hfut.edu.cn/" target="_blank" rel="noopener">合肥工业大学</a></h3>
+            <div class="org"><a href="https://ci.hfut.edu.cn/" target="_blank" rel="noopener">计算机与信息学院</a> · 电子信息工程 · 本科</div>
+          </div>
+        </div>
+        <a class="transcript-card" href="docs/transcript.pdf" data-doc="docs/transcript.pdf" data-doc-title="本科成绩单" data-doc-type="pdf">
+          <div class="transcript-title">本科成绩单</div>
+          <div class="score-grid">
+            <div class="score-item"><span class="score-label">GPA</span><span class="score-value">3.62 / 4.3</span></div>
+            <div class="score-item"><span class="score-label">均分</span><span class="score-value">87.45</span></div>
+            <div class="score-item"><span class="score-label">专业排名</span><span class="score-value">29 / 149（前 19.46%）</span></div>
+          </div>
+        </a>
+        <div class="course-list">
+          <span class="course">信号处理基础</span>
+          <span class="course">机器学习与深度学习</span>
+          <span class="course">计算机视觉</span>
+          <span class="course">嵌入式系统</span>
+          <span class="course">数理基础</span>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">Language Ability</div>
+        <h3>英语能力</h3>
+        <div class="org">College English Test</div>
+        <div class="detail">CET4 <b>472</b> · CET6 <b>469</b>，具备英文论文阅读、技术文档检索与信息整理能力。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="projects">
+    <div class="page-title">研究与项目</div>
+    <div class="page-sub">Research Interests & Projects</div>
+    <div class="interest-grid">
+      <div class="interest"><b>多模态学习</b><span>关注视觉-语言对齐、跨模态表征、医学影像与语义信息融合。</span></div>
+      <div class="interest"><b>多智能体系统</b><span>关注智能体协作、任务分解、通信机制与开放环境下的策略学习。</span></div>
+      <div class="interest"><b>OPD / RL</b><span>关注强化学习、序贯决策、策略优化与可验证的智能决策流程。</span></div>
+    </div>
+    <div class="panel">
+      <div class="proj">
+        <div class="when">2025.12 — 2026.06 <span class="badge">本科毕业设计</span></div>
+        <h3>基于深度学习的视网膜 OCT 图像智能分割系统</h3>
+        <p>面向视网膜 OCT 图像中的积液病灶分割任务，构建医学影像智能分析流程。以 <b>U-Net</b> 为基线，对 U-Net、Attention U-Net 等模型进行对比实验，重点关注病灶区域、边界结构与细粒度视觉表征。</p>
+        <p>完成数据预处理、模型训练、指标评估与桌面端推理可视化，基于 <b>Dice、IoU</b> 等指标评估分割效果，并通过 Tkinter 实现一键推理、掩膜叠加和结果展示。</p>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/NoLimit112172/OCT-Retinal-Fluid-Segmentation" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.67 0 8.2c0 3.62 2.29 6.69 5.47 7.78.4.08.55-.18.55-.4 0-.2-.01-.86-.01-1.56-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.16-.28-.15-.68-.52-.01-.53.63-.01 1.08.59 1.23.84.72 1.24 1.87.89 2.33.68.07-.53.28-.89.51-1.09-1.78-.21-3.64-.91-3.64-4.03 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.4 7.4 0 0 1 8 3.99c.68 0 1.36.09 2 .27 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.3.82 2.19 0 3.13-1.87 3.82-3.65 4.03.29.26.54.75.54 1.52 0 1.1-.01 1.98-.01 2.26 0 .22.15.48.55.4A8.13 8.13 0 0 0 16 8.2C16 3.67 12.42 0 8 0Z"/></svg>
+            代码：OCT-Retinal-Fluid-Segmentation
+          </a>
+        </div>
+        <div class="stack"><span class="chip">PyTorch</span><span class="chip">U-Net</span><span class="chip">Attention U-Net</span><span class="chip">Medical AI</span><span class="chip">Segmentation</span></div>
+      </div>
+      <div class="proj">
+        <div class="when">2025.02 — 2025.04</div>
+        <h3>基于深度学习的人脸识别远程打卡系统</h3>
+        <p>面向远程办公身份核验与考勤场景，设计 C/S 架构的人脸识别系统。前端使用 PyQt5 与 OpenCV 完成视频流采集、图像预处理和交互，后端通过 Socket 通信与 openGauss 数据库管理人员信息及打卡记录。</p>
+        <p>复现并比较 EigenFace（PCA）与 CosFace 中的 LMCL 等识别方法，基于 PyTorch 实现带大间隔余弦约束的特征学习模型。</p>
+        <span class="metric">LFW 测试集准确率 95.70%</span>
+        <div class="stack"><span class="chip">Face Recognition</span><span class="chip">OpenCV</span><span class="chip">PyQt5</span><span class="chip">Socket</span><span class="chip">openGauss</span></div>
+      </div>
+      <div class="proj">
+        <div class="when">2026.06 — 至今 <span class="badge">研究整理</span></div>
+        <h3>OPD Literature Atlas：OPD 系列论文精读与方法图谱</h3>
+        <p>围绕 OPD 及相关强化学习/智能体决策论文，搭建持续更新的文献精读网站，用统一框架整理论文的核心问题、方法机制、训练流程、实验结论、局限与论文之间的关系。</p>
+        <p>项目支持按标题、缩写、机制与关键词即时搜索，按研究类别筛选，并用研究轴组织方法谱系；同时自动生成横向比较表，方便后续组会汇报、方向梳理与选题积累。</p>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/NoLimit112172/opd-literature-atlas" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.67 0 8.2c0 3.62 2.29 6.69 5.47 7.78.4.08.55-.18.55-.4 0-.2-.01-.86-.01-1.56-2.01.38-2.53-.5-2.69-.96-.09-.24-.48-.96-.82-1.16-.28-.15-.68-.52-.01-.53.63-.01 1.08.59 1.23.84.72 1.24 1.87.89 2.33.68.07-.53.28-.89.51-1.09-1.78-.21-3.64-.91-3.64-4.03 0-.89.31-1.62.82-2.19-.08-.21-.36-1.04.08-2.16 0 0 .67-.22 2.2.84A7.4 7.4 0 0 1 8 3.99c.68 0 1.36.09 2 .27 1.53-1.06 2.2-.84 2.2-.84.44 1.12.16 1.95.08 2.16.51.57.82 1.3.82 2.19 0 3.13-1.87 3.82-3.65 4.03.29.26.54.75.54 1.52 0 1.1-.01 1.98-.01 2.26 0 .22.15.48.55.4A8.13 8.13 0 0 0 16 8.2C16 3.67 12.42 0 8 0Z"/></svg>
+            代码：opd-literature-atlas
+          </a>
+          <a class="project-link" href="https://nolimit112172.github.io/opd-literature-atlas/" target="_blank" rel="noopener">在线图谱</a>
+        </div>
+        <div class="stack"><span class="chip">OPD</span><span class="chip">Reinforcement Learning</span><span class="chip">Multi-Agent</span><span class="chip">Literature Review</span><span class="chip">Research Atlas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page" id="honors">
+    <div class="page-title">荣誉技能</div>
+    <div class="page-sub">Honors, Awards & Skills</div>
+    <div class="panel">
+      <div class="award-group">
+        <h4>竞赛奖项</h4>
+        <a class="award" href="docs/datang-cup.pdf" data-doc="docs/datang-cup.pdf" data-doc-title="第十二届“大唐杯”省赛获奖公示" data-doc-type="pdf"><span class="name">第十二届“大唐杯”全国大学生新一代信息通信技术大赛 · 工程实践赛本科 A 组</span><span class="lvl">省赛一等奖 · 2025.05</span></a>
+        <a class="award" href="docs/huawei-ict.pdf" data-doc="docs/huawei-ict.pdf" data-doc-title="第九届华为 ICT 大赛获奖证书" data-doc-type="pdf"><span class="name">第九届华为 ICT 大赛 · 实践赛 · 云赛道高教组</span><span class="lvl">省赛一等奖 · 2025.04</span></a>
+        <a class="award" href="docs/ncccu-cpp.jpg" data-doc="docs/ncccu-cpp.jpg" data-doc-title="全国高校计算机能力挑战赛获奖证书" data-doc-type="image"><span class="name">2024 年第六届全国高校计算机能力挑战赛 · 程序设计挑战赛（C++ 科目）· 华东赛区本科组</span><span class="lvl">二等奖 · 2024.11</span></a>
+      </div>
+      <div class="award-group">
+        <h4>荣誉称号与奖学金</h4>
+        <div class="award"><span class="name">校三等奖学金</span><span class="lvl">2022—2023</span></div>
+        <div class="award"><span class="name">校三好学生</span><span class="lvl">2022—2023</span></div>
+        <div class="award"><span class="name">校三等奖学金</span><span class="lvl">2024—2025</span></div>
+      </div>
+      <div class="award-group">
+        <h4>技术关键词</h4>
+        <p class="body">Python / C / PyTorch / OpenCV / MATLAB / Linux 基础 / 深度学习 / 计算机视觉 / 多模态学习 / 多智能体系统 / 强化学习 / 医学影像分析。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="doc-modal" id="docModal" aria-hidden="true">
+  <div class="doc-backdrop" data-doc-close></div>
+  <div class="doc-panel" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+    <div class="doc-head">
+      <div class="doc-title" id="docTitle">材料预览</div>
+      <div class="doc-actions">
+        <a class="doc-open" id="docOpen" href="#" target="_blank" rel="noopener">新窗口打开</a>
+        <button class="doc-close" type="button" data-doc-close>关闭</button>
+      </div>
+    </div>
+    <div class="doc-body">
+      <iframe class="doc-frame" id="docFrame" title="材料预览"></iframe>
+      <img class="doc-image" id="docImage" alt="材料预览">
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 吴贤 Wu Xian</span>
+    <span>Multimodal AI · Multi-Agent Systems · Reinforcement Learning</span>
+  </div>
+</footer>
+
+<script>
+  const links=document.querySelectorAll("[data-nav]");
+  const sections=[...document.querySelectorAll("main section.page")];
+  function spy(){
+    let current=sections[0]?.id || "about";
+    sections.forEach(sec=>{if(sec.getBoundingClientRect().top < 140) current=sec.id;});
+    links.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+current));
+  }
+  window.addEventListener("scroll",spy,{passive:true});
+  spy();
+
+  const modal=document.getElementById("docModal");
+  const modalTitle=document.getElementById("docTitle");
+  const modalOpen=document.getElementById("docOpen");
+  const modalFrame=document.getElementById("docFrame");
+  const modalImage=document.getElementById("docImage");
+  function openDoc(link){
+    const url=link.dataset.doc;
+    const title=link.dataset.docTitle || "材料预览";
+    const type=link.dataset.docType || "pdf";
+    modalTitle.textContent=title;
+    modalOpen.href=url;
+    if(type==="image"){
+      modalFrame.style.display="none";
+      modalFrame.removeAttribute("src");
+      modalImage.style.display="block";
+      modalImage.src=url;
+    }else{
+      modalImage.style.display="none";
+      modalImage.removeAttribute("src");
+      modalFrame.style.display="block";
+      modalFrame.src=url;
+    }
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow="hidden";
+  }
+  function closeDoc(){
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden","true");
+    modalFrame.removeAttribute("src");
+    modalImage.removeAttribute("src");
+    document.body.style.overflow="";
+  }
+  document.querySelectorAll("[data-doc]").forEach(link=>{
+    link.addEventListener("click",event=>{
+      event.preventDefault();
+      openDoc(link);
+    });
+  });
+  document.querySelectorAll("[data-doc-close]").forEach(item=>item.addEventListener("click",closeDoc));
+  window.addEventListener("keydown",event=>{if(event.key==="Escape"&&modal.classList.contains("active")) closeDoc();});
+</script>
+</body>
+</html>
