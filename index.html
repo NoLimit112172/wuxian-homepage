@@ -181,9 +181,9 @@
     box-shadow:0 20px 50px rgba(68,54,32,.10);
     overflow:hidden;
   }
-  .entry,.proj,.award-group{padding:34px 36px;border-top:1px solid var(--line);transition:background .28s ease}
+  .entry,.proj{padding:34px 36px;border-top:1px solid var(--line);transition:background .28s ease}
   .entry:hover,.proj:hover{background:rgba(47,111,115,.035)}
-  .entry:first-child,.proj:first-child,.award-group:first-child{border-top:none}
+  .entry:first-child,.proj:first-child{border-top:none}
   .entry .when,.proj .when{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:8px}
   .badge{display:inline-flex;color:#fffaf0;background:var(--cyan);font-size:11px;font-weight:800;padding:3px 10px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
   .entry h3,.proj h3{font-family:var(--display);font-size:1.45rem;line-height:1.25;margin-bottom:8px}
@@ -196,23 +196,6 @@
   .school-head .org{margin-bottom:0}
   .detail{color:var(--muted);font-size:15px}
   .detail b{color:var(--ink)}
-  .transcript-card{
-    display:block;
-    margin-top:14px;
-    padding:16px 18px;
-    border:1px solid var(--line);
-    border-radius:18px;
-    background:rgba(255,250,240,.62);
-    color:inherit;
-    transition:background .2s,border-color .2s,transform .2s;
-  }
-  .transcript-card:hover{background:rgba(47,111,115,.06);border-color:rgba(47,111,115,.24);transform:translateY(-1px)}
-  .transcript-title{color:var(--cyan);font-weight:700;margin-bottom:12px}
-  .score-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-  .score-item{padding-right:12px;border-right:1px solid var(--line)}
-  .score-item:last-child{border-right:none;padding-right:0}
-  .score-label{display:block;color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
-  .score-value{display:block;color:var(--ink);font-weight:800;font-size:1.16rem;line-height:1.35}
   .evidence-link{
     display:inline-flex;
     align-items:center;
@@ -248,35 +231,6 @@
   .project-link:hover{opacity:.72}
   .project-link::after{content:"↗";font-size:16px;transition:transform .2s ease}
   .project-link:hover::after{transform:translate(3px,-3px)}
-  .award-group h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px}
-  .award{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
-  a.award{transition:color .2s,opacity .2s}
-  a.award:hover{opacity:.75}
-  .award:first-of-type{border-top:none}
-  .award .name{color:var(--ink)}
-  .award .lvl{white-space:nowrap;color:var(--mint);font-size:13px}
-  .doc-modal{position:fixed;inset:0;z-index:100;display:none}
-  .doc-modal.active{display:block}
-  .doc-backdrop{position:absolute;inset:0;background:rgba(34,32,28,.56);backdrop-filter:blur(4px)}
-  .doc-panel{
-    position:absolute;
-    inset:28px;
-    display:flex;
-    flex-direction:column;
-    overflow:hidden;
-    border-radius:22px;
-    border:1px solid rgba(255,250,240,.32);
-    background:var(--panel);
-    box-shadow:0 28px 90px rgba(34,32,28,.32);
-  }
-  .doc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
-  .doc-title{color:var(--ink);font-weight:700;font-size:15px}
-  .doc-actions{display:flex;align-items:center;gap:10px}
-  .doc-open{color:var(--cyan);font-size:14px;border-bottom:1px solid rgba(47,111,115,.26)}
-  .doc-close{border:1px solid var(--line);border-radius:999px;background:rgba(255,250,240,.7);color:var(--ink);padding:7px 12px;font:inherit;cursor:pointer}
-  .doc-body{flex:1;min-height:0;background:#f7f3ea}
-  .doc-frame{width:100%;height:100%;border:0;display:block}
-  .doc-image{width:100%;height:100%;object-fit:contain;display:none}
   footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:13px}
   .foot-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
   :focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:8px}
@@ -300,20 +254,9 @@
     .nav-links a{font-size:13px;padding:7px 11px}
     main{padding:38px 0 72px}
     .portrait-card{width:150px;margin-bottom:18px}
-    .entry,.proj,.award-group{padding:22px}
+    .entry,.proj{padding:22px}
     .school-head{gap:12px}
     .school-logo{width:52px;height:52px;flex-basis:52px}
-    .score-grid{grid-template-columns:1fr;gap:0}
-    .score-item{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:10px 0;border-right:none;border-bottom:1px solid var(--line)}
-    .score-item:last-child{border-bottom:none}
-    .score-label{margin-bottom:0;white-space:nowrap}
-    .score-value{text-align:right}
-    .doc-panel{inset:14px 10px;border-radius:18px}
-    .doc-head{align-items:flex-start}
-    .doc-actions{flex-shrink:0}
-    .doc-title{font-size:14px}
-    .award{display:block}
-    .award .lvl{display:block;text-align:left;margin-top:6px}
   }
 </style>
 </head>
@@ -329,7 +272,6 @@
       <a href="#about" data-nav>主页</a>
       <a href="#education" data-nav>教育背景</a>
       <a href="#projects" data-nav>研究与项目</a>
-      <a href="#honors" data-nav>荣誉技能</a>
     </div>
   </div>
 </nav>
@@ -402,14 +344,6 @@
             <div class="org"><a href="https://ci.hfut.edu.cn/" target="_blank" rel="noopener">计算机与信息学院</a> · 电子信息工程 · 本科</div>
           </div>
         </div>
-        <a class="transcript-card" href="docs/transcript.pdf" data-doc="docs/transcript.pdf" data-doc-title="本科成绩单" data-doc-type="pdf">
-          <div class="transcript-title">本科成绩单</div>
-          <div class="score-grid">
-            <div class="score-item"><span class="score-label">GPA</span><span class="score-value">3.62 / 4.3</span></div>
-            <div class="score-item"><span class="score-label">均分</span><span class="score-value">87.45</span></div>
-            <div class="score-item"><span class="score-label">专业排名</span><span class="score-value">29 / 149（前 19.46%）</span></div>
-          </div>
-        </a>
         <div class="course-list">
           <span class="course">信号处理基础</span>
           <span class="course">机器学习与深度学习</span>
@@ -474,47 +408,7 @@
     </div>
   </section>
 
-  <section class="page" id="honors">
-    <div class="page-title">荣誉技能</div>
-    <div class="page-sub">Honors, Awards & Skills</div>
-    <div class="panel">
-      <div class="award-group">
-        <h4>竞赛奖项</h4>
-        <a class="award" href="docs/datang-cup.pdf" data-doc="docs/datang-cup.pdf" data-doc-title="第十二届“大唐杯”省赛获奖公示" data-doc-type="pdf"><span class="name">第十二届“大唐杯”全国大学生新一代信息通信技术大赛 · 工程实践赛本科 A 组</span><span class="lvl">省赛一等奖 · 2025.05</span></a>
-        <a class="award" href="docs/huawei-ict.pdf" data-doc="docs/huawei-ict.pdf" data-doc-title="第九届华为 ICT 大赛获奖证书" data-doc-type="pdf"><span class="name">第九届华为 ICT 大赛 · 实践赛 · 云赛道高教组</span><span class="lvl">省赛一等奖 · 2025.04</span></a>
-        <a class="award" href="docs/ncccu-cpp.jpg" data-doc="docs/ncccu-cpp.jpg" data-doc-title="全国高校计算机能力挑战赛获奖证书" data-doc-type="image"><span class="name">2024 年第六届全国高校计算机能力挑战赛 · 程序设计挑战赛（C++ 科目）· 华东赛区本科组</span><span class="lvl">二等奖 · 2024.11</span></a>
-      </div>
-      <div class="award-group">
-        <h4>荣誉称号与奖学金</h4>
-        <div class="award"><span class="name">校三等奖学金</span><span class="lvl">2022—2023</span></div>
-        <div class="award"><span class="name">校三好学生</span><span class="lvl">2022—2023</span></div>
-        <div class="award"><span class="name">校三等奖学金</span><span class="lvl">2024—2025</span></div>
-      </div>
-      <div class="award-group">
-        <h4>技术关键词</h4>
-        <p class="body">Python / C / PyTorch / OpenCV / MATLAB / Linux 基础 / 深度学习 / 计算机视觉 / 多模态学习 / 多智能体系统 / 强化学习 / 医学影像分析。</p>
-      </div>
-    </div>
-  </section>
-
 </main>
-
-<div class="doc-modal" id="docModal" aria-hidden="true">
-  <div class="doc-backdrop" data-doc-close></div>
-  <div class="doc-panel" role="dialog" aria-modal="true" aria-labelledby="docTitle">
-    <div class="doc-head">
-      <div class="doc-title" id="docTitle">材料预览</div>
-      <div class="doc-actions">
-        <a class="doc-open" id="docOpen" href="#" target="_blank" rel="noopener">新窗口打开</a>
-        <button class="doc-close" type="button" data-doc-close>关闭</button>
-      </div>
-    </div>
-    <div class="doc-body">
-      <iframe class="doc-frame" id="docFrame" title="材料预览"></iframe>
-      <img class="doc-image" id="docImage" alt="材料预览">
-    </div>
-  </div>
-</div>
 
 <footer>
   <div class="wrap foot-inner">
@@ -541,47 +435,6 @@
   updateProgress();
   window.addEventListener("resize",updateProgress);
 
-  const modal=document.getElementById("docModal");
-  const modalTitle=document.getElementById("docTitle");
-  const modalOpen=document.getElementById("docOpen");
-  const modalFrame=document.getElementById("docFrame");
-  const modalImage=document.getElementById("docImage");
-  function openDoc(link){
-    const url=link.dataset.doc;
-    const title=link.dataset.docTitle || "材料预览";
-    const type=link.dataset.docType || "pdf";
-    modalTitle.textContent=title;
-    modalOpen.href=url;
-    if(type==="image"){
-      modalFrame.style.display="none";
-      modalFrame.removeAttribute("src");
-      modalImage.style.display="block";
-      modalImage.src=url;
-    }else{
-      modalImage.style.display="none";
-      modalImage.removeAttribute("src");
-      modalFrame.style.display="block";
-      modalFrame.src=url;
-    }
-    modal.classList.add("active");
-    modal.setAttribute("aria-hidden","false");
-    document.body.style.overflow="hidden";
-  }
-  function closeDoc(){
-    modal.classList.remove("active");
-    modal.setAttribute("aria-hidden","true");
-    modalFrame.removeAttribute("src");
-    modalImage.removeAttribute("src");
-    document.body.style.overflow="";
-  }
-  document.querySelectorAll("[data-doc]").forEach(link=>{
-    link.addEventListener("click",event=>{
-      event.preventDefault();
-      openDoc(link);
-    });
-  });
-  document.querySelectorAll("[data-doc-close]").forEach(item=>item.addEventListener("click",closeDoc));
-  window.addEventListener("keydown",event=>{if(event.key==="Escape"&&modal.classList.contains("active")) closeDoc();});
 </script>
 </body>
 </html>
